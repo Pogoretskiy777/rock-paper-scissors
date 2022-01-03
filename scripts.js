@@ -28,7 +28,7 @@ function playRound(playerSelection) {
     console.log(score);
     console.log(computerSelection);
   } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-    alert("A draw! Nice!");
+    alert("A draw! Nice! No points to either team!");
     console.log(score);
     console.log(computerSelection);
   } else { 
