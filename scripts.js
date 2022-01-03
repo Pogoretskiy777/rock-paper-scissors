@@ -47,6 +47,14 @@ function game() {
   playRound();
   playRound();
   playRound();
+  let score = `Computer: ${computerScore} Player: ${playerScore}`;
+  if (computerScore > playerScore) {
+    alert(`You lose! The computer outplayed you!\n${score}`);
+  } else if (playerScore > computerScore) {
+    alert(`Congrats! You beat the computer!\n${score}`);
+  } else {
+    alert(`It is a draw! Maybe next time?\n${score}`);
+  }
 }
 
 game();
