@@ -6,12 +6,12 @@ function computerPlay() {
 
 let playerScore = 0;
 let computerScore = 0;
-let score = `Computer: ${computerScore} Player: ${playerScore}`;
-var playerSelection = prompt("Rock, Paper, or Scissors?");
-playerSelection = playerSelection.toLowerCase();
 
 function playRound(playerSelection) {
+  var playerSelection = prompt("Rock, Paper, or Scissors?");
+  playerSelection = playerSelection.toLowerCase();
   var computerSelection = computerPlay();
+  let score = `Computer: ${computerScore} Player: ${playerScore}`;
     if (playerSelection === 'rock' && computerSelection==='Scissors') {
     alert("You win! Rock beats scissors!");
     playerScore +=1;
@@ -31,6 +31,8 @@ function playRound(playerSelection) {
     alert("A draw! Nice! No points to either team!");
     console.log(score);
     console.log(computerSelection);
+  } else if (playerSelection === '') {
+      alert("Error");
   } else { 
     alert(`You lose! ${computerSelection} beats ${playerSelection}!`);
     computerScore += 1;
@@ -39,4 +41,12 @@ function playRound(playerSelection) {
   }
 }
 
-playRound(playerSelection);
+function game() {
+  playRound();
+  playRound();
+  playRound();
+  playRound();
+  playRound();
+}
+
+game();
