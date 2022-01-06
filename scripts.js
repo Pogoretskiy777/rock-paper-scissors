@@ -15,29 +15,29 @@ function playRound() {
     if (playerSelection === 'rock' && computerSelection==='Scissors') {
     alert("You win! Rock beats scissors!");
     playerScore +=1;
-    console.log(score);
-    console.log(computerSelection);
+      console.log(score);
+      console.log(computerSelection);
   } else if (playerSelection === 'scissors' && computerSelection==='Paper') {
     alert("You win! Scissors beats paper!");
     playerScore +=1;
-    console.log(score);
-    console.log(computerSelection);
+      console.log(score);
+      console.log(computerSelection);
   } else if (playerSelection === 'paper' && computerSelection==='Rock') {
     alert("You win! Paper beats rock!");
     playerScore +=1;
-    console.log(score);
-    console.log(computerSelection);
+      console.log(score);
+      console.log(computerSelection);
   } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
     alert("A draw! Nice! No points to either team!");
-    console.log(score);
-    console.log(computerSelection);
+      console.log(score);
+      console.log(computerSelection);
   } else if (playerSelection === '') {
       alert("Error");
   } else { 
     alert(`You lose! ${computerSelection} beats ${playerSelection}!`);
     computerScore += 1;
-    console.log(score);
-    console.log(computerSelection);
+      console.log(score);
+      console.log(computerSelection);
   }
 }
 
