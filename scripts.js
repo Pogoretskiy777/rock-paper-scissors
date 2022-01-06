@@ -7,7 +7,7 @@ function computerPlay() {
 let playerScore = 0;
 let computerScore = 0;
 
-function playRound(playerSelection) {
+function playRound() {
   var playerSelection = prompt("Rock, Paper, or Scissors?");
   playerSelection = playerSelection.toLowerCase();
   var computerSelection = computerPlay();
