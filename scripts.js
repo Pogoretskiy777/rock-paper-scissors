@@ -7,6 +7,14 @@ function computerPlay() {
 let playerScore = 0;
 let computerScore = 0;
 
+let buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    console.log(button.textContent);
+    let playerSelection = button.textContent.toLowerCase();
+  });
+});
+
 function playRound() {
   var playerSelection = prompt("Rock, Paper, or Scissors?");
   playerSelection = playerSelection.toLowerCase();
@@ -42,11 +50,6 @@ function playRound() {
 }
 
 function game() {
-  playRound();
-  playRound();
-  playRound();
-  playRound();
-  playRound();
   let score = `Computer: ${computerScore} Player: ${playerScore}`;
   if (computerScore > playerScore) {
     alert(`You lose! The computer outplayed you!\n${score}`);
@@ -56,5 +59,3 @@ function game() {
     alert(`It is a draw! Maybe next time?\n${score}`);
   }
 }
-
-game();
