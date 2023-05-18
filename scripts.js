@@ -18,12 +18,13 @@ buttons.forEach((button) => {
     let playerSelection = button.textContent.toLowerCase();
     let newResult = playRound(playerSelection);
     score.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
-    result.textContent = newResult;
+    if (playerScore == 5 || computerScore == 5) {
+      result.textContent = game();
+    } else {
+      result.textContent = newResult;
+    }
   });
 });
-
-
-
 
 function playRound(playerSelection) {
   var computerSelection = computerPlay();
@@ -50,11 +51,13 @@ function playRound(playerSelection) {
 
 function game() {
   let score = `Computer: ${computerScore} Player: ${playerScore}`;
+  let result;
   if (computerScore > playerScore) {
-    alert(`You lose! The computer outplayed you!\n${score}`);
+    result = `You lose! The computer outplayed you!`;
   } else if (playerScore > computerScore) {
-    alert(`Congrats! You beat the computer!\n${score}`);
+    result = `Congrats! You beat the computer!`;
   } else {
-    alert(`It is a draw! Maybe next time?\n${score}`);
+    result = `It is a draw! Maybe next time?`;
   }
+  return result;
 }
