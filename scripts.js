@@ -9,12 +9,16 @@ let computerScore = 0;
 
 let score = document.getElementById('score-text');
 let buttons = document.querySelectorAll('button');
+let resultContainer = document.querySelector('.result');
+let result = document.createElement('p');
+resultContainer.appendChild(result);
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     let playerSelection = button.textContent.toLowerCase();
-    playRound(playerSelection);
+    let newResult = playRound(playerSelection);
     score.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
+    result.textContent = newResult;
   });
 });
 
@@ -23,23 +27,25 @@ buttons.forEach((button) => {
 
 function playRound(playerSelection) {
   var computerSelection = computerPlay();
+  let result;
     if (playerSelection === 'rock' && computerSelection==='Scissors') {
-    alert("You win! Rock beats scissors!");
+    result = "You win! Rock beats scissors!";
     playerScore +=1;
   } else if (playerSelection === 'scissors' && computerSelection==='Paper') {
-    alert("You win! Scissors beats paper!");
+    result = "You win! Scissors beats paper!";
     playerScore +=1;
   } else if (playerSelection === 'paper' && computerSelection==='Rock') {
-    alert("You win! Paper beats rock!");
+    result = "You win! Paper beats rock!";
     playerScore +=1;
   } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-    alert("A draw! Nice! No points to either team!");
+    result = "A draw! Nice! No points to either team!";
   } else if (playerSelection === '') {
-      alert("Error");
+    result = "Error";
   } else { 
-    alert(`You lose! ${computerSelection} beats ${playerSelection}!`);
+    result = `You lose! ${computerSelection} beats ${playerSelection}!`;
     computerScore += 1;
   }
+  return result;
 }
 
 function game() {
