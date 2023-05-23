@@ -16,17 +16,31 @@ let score = document.getElementById("score-text");
 let buttons = document.querySelectorAll("button");
 let resultContainer = document.querySelector(".result");
 let result = document.createElement("p");
+
+let restartButton = document.createElement("button");
+restartButton.textContent = "Restart";
+restartButton.addEventListener("click", () => {
+  buttons.forEach((button) => {
+    button.addEventListener("click", handlePlayerClick);
+  });
+  playerScore = 0;
+  computerScore = 0;
+  score.textContent =
+    "Press a button to start playing against the computer!\nFirst to five wins!";
+  resultContainer.removeChild(restartButton);
+  result.textContent = "";
+});
 resultContainer.appendChild(result);
 
 buttons.forEach((button) => {
-  button.addEventListener("click", handleClick);
+  button.addEventListener("click", handlePlayerClick);
 });
 
 /**
  * Every time a decision is clicked, the current score will be updated. When either team reaches 5 points,
- * the buttons will no longer work.
+ * the buttons will no longer be clickable.
  */
-function handleClick() {
+function handlePlayerClick() {
   let playerSelection = this.textContent.toLowerCase();
   let newResult = playRound(playerSelection);
   score.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
@@ -34,9 +48,11 @@ function handleClick() {
   console.log();
   if (playerScore === 5 || computerScore === 5) {
     buttons.forEach((button) => {
-      button.removeEventListener("click", handleClick);
+      button.removeEventListener("click", handlePlayerClick);
     });
-    result.textContent = game();
+    result.setAttribute("font-size", "20px");
+    result.textContent = finishGame() + " Press restart to play again!";
+    resultContainer.appendChild(restartButton);
   }
 }
 
@@ -76,7 +92,7 @@ function playRound(playerSelection) {
  *
  * @returns The result of the game.
  */
-function game() {
+function finishGame() {
   let score = `Computer: ${computerScore} Player: ${playerScore}`;
   let result;
   if (computerScore > playerScore) {
