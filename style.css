@@ -1,5 +1,5 @@
 body {
-  max-width: 1000px;
+  background-color: black;
 }
 
 .body {
@@ -18,10 +18,71 @@ h2 {
 .buttons {
   display: flex;
   justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.restart-button {
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+  font-size: 18px;
+  padding: 5px;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 4px;
+  width: 150px;
+  height: 50px;
+}
+
+.restart-button:hover, .game-play:hover { 
+  color: rgb(164, 164, 164);
+  border-color: rgb(164, 164, 164);
+}
+
+.game-play:active, .restart-button:active {
+  border: 3px;
+  border-style: solid;
+}
+
+.game-play {
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+  font-size: 18px;
+  padding: 5px;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 4px;
+  width: 150px;
+  height: 50px;
 }
 
 .title {
+  color: white;
   font-size: 20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.result {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.score {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 150px;
+}
+
+p {
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

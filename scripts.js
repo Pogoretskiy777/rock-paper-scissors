@@ -9,16 +9,20 @@ function computerPlay() {
   return myArray[~~(Math.random() * myArray.length)];
 }
 
+// Initialize scores
 let playerScore = 0;
 let computerScore = 0;
 
+// Create html elements
 let score = document.getElementById("score-text");
 let buttons = document.querySelectorAll("button");
 let resultContainer = document.querySelector(".result");
 let result = document.createElement("p");
 
+// Create buttons
 let restartButton = document.createElement("button");
 restartButton.textContent = "Restart";
+restartButton.classList.add("restart-button");
 restartButton.addEventListener("click", () => {
   buttons.forEach((button) => {
     button.addEventListener("click", handlePlayerClick);
